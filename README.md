@@ -76,6 +76,11 @@ tsc using-ts.ts
   - Any of two values: true or false. (In typescript just true or false, no truthy or falsy values)
 - object
   - Any JS object. More specific types (types of objects) are possible in TS: {age: 30}
+- Array
+    - Any JS array `[1, 2, 3]`. More specific types (types of arrays) (can be flexible or strict in terms of the types of elements in the array) are possible in TS: 
+
+
+
     > Note typescript only helps you during development and compilation. It does not perform any runtime checks.
     > **Key difference between JS and TS** _Javascript uses dynamic types (resolve at runtime) and Typescript uses static types (set during development)_
 
@@ -192,3 +197,23 @@ const product: {
 ```
 
 So you have an object type in an object type so to say.
+
+
+---
+
+##### Arrays:
+
+- Arrays in typescript are defined in the following manner:
+- if the array's elements are strings it would be as follows: ` hobbies: string[]`
+```ts
+
+const person: {
+  name: string;
+  age: number;
+  hobbies: string[];
+} = {
+  name: "Bryan",
+  age: 27,
+  hobbies: ["Sports", "Cooking"],
+};
+```
