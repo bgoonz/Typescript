@@ -409,7 +409,7 @@ For example:
 
 ```ts
 type User = { name: string; age: number };
-const u1: User = { name: 'Max', age: 30 }; // this works!
+const u1: User = { name: 'Bryan', age: 27 }; // this works!
 ```
 
 This allows you to avoid unnecessary repetition and manage types centrally.
