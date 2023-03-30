@@ -80,4 +80,4 @@ tsc using-ts.ts
 
 ###### Core Types:
 - number 
- - All numbers, no differentiation between integers or floats. 
+   - All numbers, no differentiation between integers or floats. 
