@@ -244,5 +244,15 @@ const person: {
 
 > In the example above length is enforced if we were to add the wrong data type to the wrong field... i.e. `person.role[1]=10` because role is supposed to be a string... but unfortunatly this would not be enforced with the push method... i.e. `person.role.push("admin")` this would not throw an error because the push method is not enforced by typescript. This is because the push method is a method that is available on all arrays and not just tuples.
 
+---
 
+##### Enums:
+
+- Enums allow us to define a set of named constants. Using enums can make it easier to document intent, or create a set of distinct cases. TypeScript provides a way to create enums.
+
+- Often we see enums with all uppercase names, but that's not required.
+
+example of enum: `enum Role { ADMIN, READ_ONLY, AUTHOR };` where ADMIN gets the value 0, READ_ONLY gets the value 1 and AUTHOR gets the value 2.
+
+- We can also set the values of the enums ourselves. example: `enum Role { ADMIN = 5, READ_ONLY, AUTHOR };` where ADMIN gets the value 5, READ_ONLY gets the value 6 and AUTHOR gets the value 7.
 
