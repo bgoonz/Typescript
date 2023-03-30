@@ -67,3 +67,14 @@ const input2 = document.getElementById("num2")!;
 ```bash
 tsc using-ts.ts
 ```
+
+
+###### Typescript adds the following to JS:
+- Types
+- Ide auto complete and error checking
+- Next generation JS features that get compiled to older JS (like babel for JS)
+- Non-JS features like interfaces, generics.
+- Meta programming features like decorators.
+- Rich configuration options
+
+
