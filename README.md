@@ -217,3 +217,32 @@ const person: {
   hobbies: ["Sports", "Cooking"],
 };
 ```
+
+
+---
+
+##### Tuples:
+
+- A tuple is an array of fixed length and fixed type.
+
+```ts
+const person: {
+  name: string;
+  age: number;
+  hobbies: string[];
+  role: [number, string]; // Tuple
+} = {
+  name: "Bryan",
+  age: 27,
+  hobbies: ["Sports", "Cooking"],
+  role: [2, "author"],
+};
+```
+
+> in the above example the role property on the person object is an exampe of a tuple. The order of the elements is important. If we were to change the order of the elements in the tuple we would get an error.
+
+
+> In the example above length is enforced if we were to add the wrong data type to the wrong field... i.e. `person.role[1]=10` because role is supposed to be a string... but unfortunatly this would not be enforced with the push method... i.e. `person.role.push("admin")` this would not throw an error because the push method is not enforced by typescript. This is because the push method is a method that is available on all arrays and not just tuples.
+
+
+
