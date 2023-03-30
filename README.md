@@ -90,3 +90,9 @@ tsc using-ts.ts
 
 - object
    - Any JS object. More specific types: {age: 30}
+
+
+> Note typescript only helps you during development and compilation. It does not perform any runtime checks.
+
+
+
