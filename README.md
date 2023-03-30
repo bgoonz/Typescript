@@ -49,3 +49,21 @@ button.addEventListener("click", function () {
 ```
 
 - When you take the value of an input field you always get a string... even if the type of the input is number... thus if you were to input 2 and 3 you would get 23 instead of 5.
+
+
+In typescript the ! operator is used to tell the compiler that you are sure that the value is not null. 
+
+```ts
+const input1 = document.getElementById("num1")!;
+const input2 = document.getElementById("num2")!;
+```
+
+
+**Typecasting** is a way to tell the compiler that you are sure that the value is of a certain type. 
+
+
+**To Compile Typescript to Javascript** we use the typescript compiler.
+    
+```bash
+tsc using-ts.ts
+```
