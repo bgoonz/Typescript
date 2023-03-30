@@ -363,5 +363,42 @@ const combineNames = combine("Bryan", "Anna", "as-text");
 console.log(combineNames);
 ```
 
+---
 
+##### Type Aliases (Custom Types):
+
+- Type aliases create a new name for a type. Type aliases are sometimes similar to interfaces, but can name primitives, unions, tuples, and any other types that you’d otherwise have to write by hand.
+
+> example of type alias:
+- uses the keyword `type` instead of `interface` and can be used with union types.
+```ts
+type Combinable = number | string;
+type ConversionDescriptor = "as-number" | "as-text";
+
+function combine(
+    input1: Combinable,
+    input2: Combinable,
+    resultConversion: ConversionDescriptor
+) {
+  let result;
+  if (
+    (typeof input1 === "number" && typeof input2 === "number") ||
+    resultConversion === "as-number"
+  ) {
+    result = +input1 + +input2;
+  } else {
+    result = input1.toString() + input2.toString();
+  }
+  return result;
+}
+
+const combineAges = combine(30, 26, "as-number");
+console.log(combineAges);
+
+const combineStringAges = combine("30", "26", "as-number");
+console.log(combineStringAges);
+
+const combineNames = combine("Bryan", "Anna", "as-text");
+console.log(combineNames);
+```
 
