@@ -103,3 +103,51 @@ In TypeScript, you work with types like `string` or `number` all the times.
 **Important**: It is `string` and `number` (etc.), **NOT** `String`, `Number` etc.
 
 **The core primitive types in TypeScript are all lowercase!**
+
+
+* Example: 
+```ts
+function add(n1: number, n2: number, showResult: boolean, phrase: string) {
+  if (showResult) {
+    console.log(phrase+n1 + n2);
+  } else {
+    return n1 + n2;
+  }
+}
+
+const number1 = 5;
+const number2 = 2.8;
+const printResult = true;
+const resultPhrase = "Result is: ";
+
+const result = add(number1, number2, printResult, resultPhrase);
+
+
+```
+
+> The above code introduces a bug in that by adding the resultPhrase to the two numbers we coerce the result to a string. This is because the resultPhrase is a string and the result of the addition is a number.
+
+- This can be fixed in the following manner...
+
+```ts
+function add(n1: number, n2: number, showResult: boolean, phrase: string) {
+    const result = n1 + n2;
+  if (showResult) {
+    console.log(phrase+ result);
+  } else {
+    return result;
+  }
+}
+
+const number1 = 5;
+const number2 = 2.8;
+const printResult = true;
+const resultPhrase = "Result is: ";
+
+const result = add(number1, number2, printResult, resultPhrase);
+```
+
+By calculating the result before concatenating it with the resultPhrase we ensure that the result is calculated as a number before it is coerced to a string to be displayed in the console.
+
+
+
