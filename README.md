@@ -78,3 +78,6 @@ tsc using-ts.ts
 - Rich configuration options
 
 
+###### Core Types:
+- number 
+ - All numbers, no differentiation between integers or floats. 
