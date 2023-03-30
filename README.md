@@ -94,5 +94,12 @@ tsc using-ts.ts
 
 > Note typescript only helps you during development and compilation. It does not perform any runtime checks.
 
+**Key difference between JS and TS** _Javascript uses dynamic types (resolve at runtime) and Typescript uses static types (set during development)_
 
+###### Important: Type Casing
 
+In TypeScript, you work with types like `string` or `number` all the times.
+
+**Important**: It is `string` and `number` (etc.), **NOT** `String`, `Number` etc.
+
+**The core primitive types in TypeScript are all lowercase!**
