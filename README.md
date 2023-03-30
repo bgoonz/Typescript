@@ -80,4 +80,13 @@ tsc using-ts.ts
 
 ###### Core Types:
 - number 
-   - All numbers, no differentiation between integers or floats. 
+   - All numbers, no differentiation between integers or floats (1, 5.3, -10 ...etc). 
+
+- string
+   - All text values. ( 'Hi', "Hi", `Hi` )
+
+- boolean
+   - Any of two values: true or false. (In typescript just true or false, no truthy or falsy values)
+
+- object
+   - Any JS object. More specific types: {age: 30}
