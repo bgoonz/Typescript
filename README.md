@@ -77,10 +77,7 @@ tsc using-ts.ts
 - object
   - Any JS object. More specific types (types of objects) are possible in TS: {age: 30}
 - Array
-    - Any JS array `[1, 2, 3]`. More specific types (types of arrays) (can be flexible or strict in terms of the types of elements in the array) are possible in TS: 
-
-
-
+  - Any JS array `[1, 2, 3]`. More specific types (types of arrays) (can be flexible or strict in terms of the types of elements in the array) are possible in TS:
     > Note typescript only helps you during development and compilation. It does not perform any runtime checks.
     > **Key difference between JS and TS** _Javascript uses dynamic types (resolve at runtime) and Typescript uses static types (set during development)_
 
@@ -164,23 +161,22 @@ const person: {
 };
 ```
 
-
 Nested Objects & Types
-
 Of course object types can also be created for** nested objects**.
-
 Let's say you have this JavaScript **object**:
+
 ```js
-  const product = {
-   id: "abc1",
-   price: 12.99,
-   tags: ["great-offer", "hot-and-new"],
-   details: {
-     title: "Red Carpet",
-     description: "A great carpet - almost brand-new!",
-   },
- };
+const product = {
+  id: "abc1",
+  price: 12.99,
+  tags: ["great-offer", "hot-and-new"],
+  details: {
+    title: "Red Carpet",
+    description: "A great carpet - almost brand-new!",
+  },
+};
 ```
+
 This would be the **type** of such an object:
 
 ```ts
@@ -193,20 +189,16 @@ const product: {
     description: string;
   };
 };
-
 ```
 
-So you have an object type in an object type so to say.
-
-
----
+## So you have an object type in an object type so to say.
 
 ##### Arrays:
 
 - Arrays in typescript are defined in the following manner:
 - if the array's elements are strings it would be as follows: ` hobbies: string[]`
-```ts
 
+```ts
 const person: {
   name: string;
   age: number;
@@ -217,7 +209,6 @@ const person: {
   hobbies: ["Sports", "Cooking"],
 };
 ```
-
 
 ---
 
@@ -240,8 +231,6 @@ const person: {
 ```
 
 > in the above example the role property on the person object is an exampe of a tuple. The order of the elements is important. If we were to change the order of the elements in the tuple we would get an error.
-
-
 > In the example above length is enforced if we were to add the wrong data type to the wrong field... i.e. `person.role[1]=10` because role is supposed to be a string... but unfortunatly this would not be enforced with the push method... i.e. `person.role.push("admin")` this would not throw an error because the push method is not enforced by typescript. This is because the push method is a method that is available on all arrays and not just tuples.
 
 ---
@@ -249,10 +238,40 @@ const person: {
 ##### Enums:
 
 - Enums allow us to define a set of named constants. Using enums can make it easier to document intent, or create a set of distinct cases. TypeScript provides a way to create enums.
-
 - Often we see enums with all uppercase names, but that's not required.
-
-example of enum: `enum Role { ADMIN, READ_ONLY, AUTHOR };` where ADMIN gets the value 0, READ_ONLY gets the value 1 and AUTHOR gets the value 2.
-
+  example of enum: `enum Role { ADMIN, READ_ONLY, AUTHOR };` where ADMIN gets the value 0, READ_ONLY gets the value 1 and AUTHOR gets the value 2.
 - We can also set the values of the enums ourselves. example: `enum Role { ADMIN = 5, READ_ONLY, AUTHOR };` where ADMIN gets the value 5, READ_ONLY gets the value 6 and AUTHOR gets the value 7.
 
+---
+
+##### Any:
+
+- The any type is a powerful way to work with existing JavaScript, allowing you to gradually opt-in and opt-out of type checking during compilation. You might expect object to play a similar role, as it does in other languages. However, variables of type object only allow you to assign any value to them - you can’t call arbitrary methods on them, even ones that actually exist:
+
+---
+
+##### Union Types:
+
+- Union types allow us to have more than one type for a variable. example: `let myRealRealAge: number | string;` this means that the variable myRealRealAge can be a number or a string.
+  > ex.)
+
+```ts
+function combine(input1: number, input2: number) {
+  const result = input1 + input2;
+  return result;
+}
+const combineAges = combine(30, 26);
+console.log(combineAges);
+```
+
+> this breakes down if we want to combine strings and will throw an error saying that the function combine cannot take strings as an argument, that's where union types come in handy.
+
+```ts
+function combine(input1: number, input2: number) {
+  const result = input1 + input2;
+  return result;
+}
+const combineAges = combine(30, 26);
+console.log(combineAges);
+const combineNames = combine("Bryan", "Anna");
+```
