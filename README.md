@@ -438,3 +438,50 @@ function isOlder(user: User, checkAge: number) {
   return checkAge > user.age;
 }
 ```
+
+
+---
+
+##### Function Return Types & "void":
+
+- Functions can return a value or not return a value. If a function does not return a value, it is of type void. This is the default return type of a function.
+
+```ts
+function printResult(num: number): void {
+    console.log("Result: " + num);
+        //return type is void because it doesn't return anything
+}
+
+printResult(add(5, 12));
+```
+
+
+- You can tell typescript what type of value a function will return by adding a colon and the type after the closing parenthesis of the function's arguments.
+
+
+```ts
+function add(n1: number, n2: number): number {
+    return n1 + n2;
+}
+
+```
+
+```ts
+function add(n1: number, n2: number): number {
+    return n1 + n2;
+}
+
+
+function printResult(num: number): void {
+    console.log("Result: " + num);
+    //return type is void because it doesn't return anything
+}
+
+printResult(add(5, 12));
+console.log(printResult(add(5, 12)));//undefined
+
+```
+
+- Intrestingly if you console.log `console.log(printResult(add(5, 12)));//undefined` you'll see that the function returns `undefined` even though it doesn't return anything. 
+
+- Void makes it clear that a function deliberatly does not return anything. 
