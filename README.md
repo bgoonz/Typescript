@@ -485,3 +485,27 @@ console.log(printResult(add(5, 12)));//undefined
 - Intrestingly if you console.log `console.log(printResult(add(5, 12)));//undefined` you'll see that the function returns `undefined` even though it doesn't return anything. 
 
 - Void makes it clear that a function deliberatly does not return anything. 
+
+
+- We can tell typescript to expect a variable to hold a function by using the `Function` keyword .
+
+```ts
+let combineValues: Function;
+
+combineValues = add;
+
+console.log(combineValues(8, 8));
+```
+
+- this could introduce errors that typescript won't detect... for example we could store a function that only takes one value as a parameter and typescript won't complain because it was expecting a function and it got a function.
+
+- This can be corrected by doing the following:
+
+```ts
+let combineValues: (a:number,b:number) =>number;
+```
+
+- This tells typescript that the variable `combineValues` will hold a function that takes two numbers and returns a number.
+
+
+
