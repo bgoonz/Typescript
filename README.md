@@ -533,7 +533,6 @@ tsc --init
 
 ```
 
-
 - This will exclude the `analytics.ts` file from being watched by typescript.
 
 If you wanted to exclude any files that end in `.spec.ts` you could use the following:
@@ -544,7 +543,6 @@ If you wanted to exclude any files that end in `.spec.ts` you could use the foll
 
 ```
 
-
 - You can also include files in the `tsconfig.json` file by using the following:
 
 ```json
@@ -554,19 +552,12 @@ If you wanted to exclude any files that end in `.spec.ts` you could use the foll
 ```
 
 - This will include all files that end in `.ts` in the directory.
-- You really have to specify everything you want to include in the `tsconfig.json` file. 
-
-
-
-
-
-
-
+- You really have to specify everything you want to include in the `tsconfig.json` file.
 
 ---
 
-
 ###### TS Config File:
+
 > tsconfig.json
 
 ```jsonc
@@ -678,11 +669,6 @@ If you wanted to exclude any files that end in `.spec.ts` you could use the foll
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
-  "exclude": [
-    "node_modules"
-]
+  "exclude": ["node_modules"]
 }
-
-
-
 ```
