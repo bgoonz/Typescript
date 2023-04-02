@@ -2,9 +2,9 @@ type Combinable = number | string;
 type ConversionDescriptor = "as-number" | "as-text";
 
 function combine(
-    input1: Combinable,
-    input2: Combinable,
-    resultConversion: ConversionDescriptor
+  input1: Combinable,
+  input2: Combinable,
+  resultConversion: ConversionDescriptor
 ) {
   let result;
   if (
@@ -26,4 +26,3 @@ console.log(combineStringAges);
 
 const combineNames = combine("Bryan", "Anna", "as-text");
 console.log(combineNames);
-

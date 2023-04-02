@@ -9,25 +9,26 @@
 //   hobbies: ["Sports", "Cooking"],
 //   role: [2, "author"],
 // };
-// 
+//
 // console.log(person.name);
-// 
+//
 // for (const hobby of person.hobbies) {
 //   console.log(hobby.toUpperCase()); // Sports, Cooking
 // }
 
-enum Role { ADMIN, READ_ONLY, AUTHOR };
+enum Role {
+  ADMIN,
+  READ_ONLY,
+  AUTHOR,
+}
 
-
-const person={
-    
+const person = {
   name: "Bryan",
   age: 27,
   hobbies: ["Sports", "Cooking"],
   role: Role.ADMIN,
 };
 
-if(person.role===Role.ADMIN){
-    console.log('is admin');
+if (person.role === Role.ADMIN) {
+  console.log("is admin");
 }
-

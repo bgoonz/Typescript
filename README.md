@@ -509,3 +509,32 @@ let combineValues: (a:number,b:number) =>number;
 
 
 
+---
+
+##### Unknown Type:
+
+- The `unknown` type is a type-safe counterpart to `any`. Any value is assignable to `unknown`, but `unknown` isn’t assignable to anything but itself and `any` without a type assertion or a control flow based narrowing. Likewise, no operations are permitted on an `unknown` without first asserting or narrowing to a more specific type.
+
+
+```ts
+let userInput: unknown;
+let userName: string;
+
+userInput = 5;
+userInput = "Bryan";
+
+userName = userInput; //Type 'unknown' is not assignable to type 'string'.
+```
+
+
+---
+
+##### Never Type:
+
+- The `never` type represents the type of values that never occur. For instance, `never` is the return type for a function expression or an arrow function expression that always throws an exception or one that never returns; Variables also acquire the type `never` when narrowed by any type guards that can never be true.
+
+```ts
+function generateError(message: string, code: number): never {
+  throw { message: message, errorCode: code };
+}
+```
