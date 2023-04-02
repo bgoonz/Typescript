@@ -682,5 +682,23 @@ The typescript core libs are the typescript definitions for the javascript core 
 - [tsc CLI Options](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
 - [What is a tsconfig.json](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
 
+**For config options in the tsconfig.json file we can hit `ctrl + space` to get a list of options.**
 
+The following is a list of the lib options that form the default lib.
+
+
+```json 
+ "lib": [
+      "es2016",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
+```
+
+- Setting the lib config as above is equivalent to not setting it at all...
+  
+---
+
+  
 
