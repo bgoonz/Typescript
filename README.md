@@ -569,7 +569,7 @@ If you wanted to exclude any files that end in `.spec.ts` you could use the foll
 ###### TS Config File:
 > tsconfig.json
 
-```json
+```jsonc
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
