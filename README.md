@@ -672,3 +672,15 @@ If you wanted to exclude any files that end in `.spec.ts` you could use the foll
   "exclude": ["node_modules"]
 }
 ```
+
+---
+
+#### Typescript Core Libs
+
+The typescript core libs are the typescript definitions for the javascript core libs. They are installed by default when you install typescript. They are located in the `node_modules/typescript/lib` folder. They are used by the typescript compiler to check the types of your code. They are also used by the typescript language server to provide intellisense and type checking.
+
+- [tsc CLI Options](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
+- [What is a tsconfig.json](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
+
+
+
