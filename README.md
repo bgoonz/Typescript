@@ -700,5 +700,9 @@ The following is a list of the lib options that form the default lib.
   
 ---
 
+
+###### Working with source maps
+
   
+if we set `    "sourceMap": true,       ` in the `tsconfig.json` file then we can debug our typescript code in the browser. This creates a `.js.map` file for each `.js` file. The `.js.map` file contains the source map for the `.js` file. The source map is used by the browser to map the `.js` file back to the `.ts` file. This allows us to debug our typescript code in the browser.
 
