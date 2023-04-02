@@ -686,8 +686,7 @@ The typescript core libs are the typescript definitions for the javascript core 
 
 The following is a list of the lib options that form the default lib.
 
-
-```json 
+```json
  "lib": [
       "es2016",
       "dom",
@@ -697,12 +696,17 @@ The following is a list of the lib options that form the default lib.
 ```
 
 - Setting the lib config as above is equivalent to not setting it at all...
-  
----
 
+---
 
 ###### Working with source maps
 
-  
-if we set `    "sourceMap": true,       ` in the `tsconfig.json` file then we can debug our typescript code in the browser. This creates a `.js.map` file for each `.js` file. The `.js.map` file contains the source map for the `.js` file. The source map is used by the browser to map the `.js` file back to the `.ts` file. This allows us to debug our typescript code in the browser.
+if we set `"sourceMap": true,` in the `tsconfig.json` file then we can debug our typescript code in the browser. This creates a `.js.map` file for each `.js` file. The `.js.map` file contains the source map for the `.js` file. The source map is used by the browser to map the `.js` file back to the `.ts` file. This allows us to debug our typescript code in the browser.
 
+---
+
+##### RootDir and OutDir
+
+- If we want to organize our ts files in a different folder structure than the js files then we can use the `rootDir` and `outDir` options in the `tsconfig.json` file.
+- The `rootDir` option tells the typescript compiler where to find the ts files.
+- The `outDir` option tells the typescript compiler where to put the js files.
