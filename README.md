@@ -2,8 +2,6 @@
 
 - [Typescript Docs](https://www.typescriptlang.org/docs/home.html)
 - [Typescript types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
-
-
   **Typescript** is a superset of Javascript that adds static typing to the language. It is a great way to add type safety to your Javascript code.
 - Unfortunately browsers & node.js cannot exicute typescript directly.
 - Typescript must be compiled to Javascript before it can be run.
@@ -279,7 +277,6 @@ console.log(combineAges);
 const combineNames = combine("Bryan", "Anna");
 ```
 
-
 > Combine either numbers or strings with typescript:
 
 ```ts
@@ -290,16 +287,12 @@ function combine(input1: number | string, input2: number | string) {
   } else {
     result = input1.toString() + input2.toString();
   }
-
   return result;
 }
-
 const combineAges = combine(30, 26);
 console.log(combineAges);
-
 const combineNames = combine("Bryan", "Anna");
 console.log(combineNames);
-
 ```
 
 ##### Literal Types:
@@ -324,64 +317,22 @@ function combine(
     return result.toString();
   }
 }
-
 const combineAges = combine(30, 26, "as-number");
 console.log(combineAges);
-
 const combineStringAges = combine("30", "26", "as-number");
 console.log(combineStringAges);
-
 const combineNames = combine("Bryan", "Anna", "as-text");
 console.log(combineNames);
 ```
 
 > 2nd approach... use union of literal types.
-i.e. `resultConversion: "as-number" | "as-text"`
-
+> i.e. `resultConversion: "as-number" | "as-text"`
 
 ```ts
-
 function combine(
   input1: number | string,
   input2: number | string,
   resultConversion: "as-number" | "as-text"
-) {
-  let result;
-  if (typeof input1 === "number" && typeof input2 === "number" || resultConversion === "as-number") {
-    result = +input1 + +input2;
-  } else {
-    result = input1.toString() + input2.toString();
-  }
-    return result;
-
-}
-
-const combineAges = combine(30, 26, "as-number");
-console.log(combineAges);
-
-const combineStringAges = combine("30", "26", "as-number");
-console.log(combineStringAges);
-
-const combineNames = combine("Bryan", "Anna", "as-text");
-console.log(combineNames);
-```
-
----
-
-##### Type Aliases (Custom Types):
-
-- Type aliases create a new name for a type. Type aliases are sometimes similar to interfaces, but can name primitives, unions, tuples, and any other types that you’d otherwise have to write by hand.
-
-> example of type alias:
-- uses the keyword `type` instead of `interface` and can be used with union types.
-```ts
-type Combinable = number | string;
-type ConversionDescriptor = "as-number" | "as-text";
-
-function combine(
-    input1: Combinable,
-    input2: Combinable,
-    resultConversion: ConversionDescriptor
 ) {
   let result;
   if (
@@ -394,54 +345,81 @@ function combine(
   }
   return result;
 }
-
 const combineAges = combine(30, 26, "as-number");
 console.log(combineAges);
-
 const combineStringAges = combine("30", "26", "as-number");
 console.log(combineStringAges);
+const combineNames = combine("Bryan", "Anna", "as-text");
+console.log(combineNames);
+```
 
+---
+
+##### Type Aliases (Custom Types):
+
+- Type aliases create a new name for a type. Type aliases are sometimes similar to interfaces, but can name primitives, unions, tuples, and any other types that you’d otherwise have to write by hand.
+  > example of type alias:
+- uses the keyword `type` instead of `interface` and can be used with union types.
+
+```ts
+type Combinable = number | string;
+type ConversionDescriptor = "as-number" | "as-text";
+function combine(
+  input1: Combinable,
+  input2: Combinable,
+  resultConversion: ConversionDescriptor
+) {
+  let result;
+  if (
+    (typeof input1 === "number" && typeof input2 === "number") ||
+    resultConversion === "as-number"
+  ) {
+    result = +input1 + +input2;
+  } else {
+    result = input1.toString() + input2.toString();
+  }
+  return result;
+}
+const combineAges = combine(30, 26, "as-number");
+console.log(combineAges);
+const combineStringAges = combine("30", "26", "as-number");
+console.log(combineStringAges);
 const combineNames = combine("Bryan", "Anna", "as-text");
 console.log(combineNames);
 ```
 
 **Type Aliases & Object Types**
 Type aliases can be used to "create" your own types. You're not limited to storing union types though - you can also provide an alias to a (possibly complex) object type.
-
 For example:
 
 ```ts
 type User = { name: string; age: number };
-const u1: User = { name: 'Bryan', age: 27 }; // this works!
+const u1: User = { name: "Bryan", age: 27 }; // this works!
 ```
 
 This allows you to avoid unnecessary repetition and manage types centrally.
-
 For example, you can simplify this code:
 
 ```ts
 function greet(user: { name: string; age: number }) {
-  console.log('Hi, I am ' + user.name);
+  console.log("Hi, I am " + user.name);
 }
- 
 function isOlder(user: { name: string; age: number }, checkAge: number) {
-  return checkAge > user.age;
-}
-``` 
-> To this:
-
-```ts
-type User = { name: string; age: number };
- 
-function greet(user: User) {
-  console.log('Hi, I am ' + user.name);
-}
- 
-function isOlder(user: User, checkAge: number) {
   return checkAge > user.age;
 }
 ```
 
+> To this:
+
+```ts
+type User = { name: string; age: number };
+function greet(user: User) {
+  console.log("Hi, I am " + user.name);
+}
+function isOlder(user: User, checkAge: number) {
+  return checkAge > user.age;
+}
+```
 
 ---
 
@@ -451,66 +429,50 @@ function isOlder(user: User, checkAge: number) {
 
 ```ts
 function printResult(num: number): void {
-    console.log("Result: " + num);
-        //return type is void because it doesn't return anything
+  console.log("Result: " + num);
+  //return type is void because it doesn't return anything
 }
-
 printResult(add(5, 12));
 ```
-
 
 - You can tell typescript what type of value a function will return by adding a colon and the type after the closing parenthesis of the function's arguments.
 
-
 ```ts
 function add(n1: number, n2: number): number {
-    return n1 + n2;
+  return n1 + n2;
 }
-
 ```
 
 ```ts
 function add(n1: number, n2: number): number {
-    return n1 + n2;
+  return n1 + n2;
 }
-
-
 function printResult(num: number): void {
-    console.log("Result: " + num);
-    //return type is void because it doesn't return anything
+  console.log("Result: " + num);
+  //return type is void because it doesn't return anything
 }
-
 printResult(add(5, 12));
-console.log(printResult(add(5, 12)));//undefined
-
+console.log(printResult(add(5, 12))); //undefined
 ```
 
-- Intrestingly if you console.log `console.log(printResult(add(5, 12)));//undefined` you'll see that the function returns `undefined` even though it doesn't return anything. 
-
-- Void makes it clear that a function deliberatly does not return anything. 
-
-
+- Intrestingly if you console.log `console.log(printResult(add(5, 12)));//undefined` you'll see that the function returns `undefined` even though it doesn't return anything.
+- Void makes it clear that a function deliberatly does not return anything.
 - We can tell typescript to expect a variable to hold a function by using the `Function` keyword .
 
 ```ts
 let combineValues: Function;
-
 combineValues = add;
-
 console.log(combineValues(8, 8));
 ```
 
 - this could introduce errors that typescript won't detect... for example we could store a function that only takes one value as a parameter and typescript won't complain because it was expecting a function and it got a function.
-
 - This can be corrected by doing the following:
 
 ```ts
-let combineValues: (a:number,b:number) =>number;
+let combineValues: (a: number, b: number) => number;
 ```
 
 - This tells typescript that the variable `combineValues` will hold a function that takes two numbers and returns a number.
-
-
 
 ---
 
@@ -518,17 +480,13 @@ let combineValues: (a:number,b:number) =>number;
 
 - The `unknown` type is a type-safe counterpart to `any`. Any value is assignable to `unknown`, but `unknown` isn’t assignable to anything but itself and `any` without a type assertion or a control flow based narrowing. Likewise, no operations are permitted on an `unknown` without first asserting or narrowing to a more specific type.
 
-
 ```ts
 let userInput: unknown;
 let userName: string;
-
 userInput = 5;
 userInput = "Bryan";
-
 userName = userInput; //Type 'unknown' is not assignable to type 'string'.
 ```
-
 
 ---
 
@@ -544,3 +502,65 @@ function generateError(message: string, code: number): never {
 
 ---
 
+##### Watch Mode
+
+- To run typescript in watch mode use the following command:
+
+```bash
+tsc app.ts -w
+```
+
+- This will watch the file for changes and recompile the file when changes are detected.
+  **To run tsc in watch mode for all files in a directory use the following command:**
+
+```bash
+tsc --init
+```
+
+- This will create a `tsconfig.json` file in the current directory.
+- then we can simply run `tsc` in the terminal and it will watch all files in the directory for changes and recompile the files when changes are detected.
+
+- To exclude files from being watched by typescript we can add the following to the `tsconfig.json` file:
+
+```json
+...
+    /* Completeness */
+    // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
+    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+  },
+  "exclude": ["analytics.ts"]
+}
+
+```
+
+
+- This will exclude the `analytics.ts` file from being watched by typescript.
+
+If you wanted to exclude any files that end in `.spec.ts` you could use the following:
+
+```json
+
+"exclude": ["*.spec.ts"]
+
+```
+
+
+- You can also include files in the `tsconfig.json` file by using the following:
+
+```json
+
+"include": ["*.ts"]
+
+```
+
+- This will include all files that end in `.ts` in the directory.
+- You really have to specify everything you want to include in the `tsconfig.json` file. 
+
+
+
+
+
+
+
+
+---
