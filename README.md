@@ -844,3 +844,30 @@ VS Code TS Debugging: https://code.visualstudio.com/docs/typescript/typescript-d
 
 ## Next Generation JavaScript and TypeScript
 
+- [JS Features and Browser Compatibility](https://kangax.github.io/compat-table/es6/)
+
+
+-Let and Const are block scoped variables. They are not hoisted to the top of the function scope like var is. They are also not accessible before they are declared.
+
+```ts
+function doSomething() {
+  console.log(flag); // undefined
+  if (true) {
+    var flag = true;
+  }
+  console.log(flag); // true
+}
+```
+
+```ts
+
+function doSomething() {
+  console.log(flag); // ReferenceError: flag is not defined
+  if (true) {
+    let flag = true;
+  }
+  console.log(flag); // ReferenceError: flag is not defined
+}
+```
+
+
