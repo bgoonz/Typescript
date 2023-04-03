@@ -1,18 +1,24 @@
-const userName = "Bryan";
-// userNames = "Bryan"; <-- error
-let age = 27;
+(function () {
+ 
+  let logger = document.getElementById("log")!;
+  console.log = function () {
+    for (let i = 0; i < arguments.length; i++) {
+      if (typeof arguments[i] == "object") {
+        logger.innerHTML +=
+          (JSON && JSON.stringify
+            ? JSON.stringify(arguments[i], undefined, 2)
+            : arguments[i]) + "<br />";
+      } else {
+        logger.innerHTML += arguments[i] + "<br />";
+      }
+    }
+  };
+})();
 
-age = 30;
 
-function add(a: number, b: number) {
-  let result;
-  result = a + b;
-  return result;
-}
-// with var you can access the variable outside the scope it was declared in.
-if(age > 20) {
-  let isOld = true;
-}
 
-console.log(isOld);
-// console.log(result) <-- error
+const add = (a: number, b: number) => {
+  return a + b;
+};
+
+console.log(add(2, 5));
