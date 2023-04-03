@@ -1,5 +1,4 @@
 (function () {
- 
   let logger = document.getElementById("log")!;
   console.log = function () {
     for (let i = 0; i < arguments.length; i++) {
@@ -14,9 +13,7 @@
     }
   };
 })();
-
-
-
+//-----------------------------------------------------------------
 const add = (a: number, b: number) => {
   return a + b;
 };

@@ -711,7 +711,6 @@ if we set `"sourceMap": true,` in the `tsconfig.json` file then we can debug our
 - The `rootDir` option tells the typescript compiler where to find the ts files.
 - The `outDir` option tells the typescript compiler where to put the js files.
 
-
 ###### noEmitOnError
 
 - If we set `"noEmitOnError": true,` in the `tsconfig.json` file then the typescript compiler will not emit any js files if there are any type errors in the ts files.
@@ -719,13 +718,12 @@ if we set `"sourceMap": true,` in the `tsconfig.json` file then we can debug our
 ```json
   "noEmitOnError": false, /* Disable emitting files if any type checking errors are reported. */
 ```
-- in the example above it is set to false so the .js files will still get created even if there are type errors in the .ts files.
 
+- in the example above it is set to false so the .js files will still get created even if there are type errors in the .ts files.
 
 ---
 
 ###### Strict Compilation
-
 
 - If we set `"strict": true,` in the `tsconfig.json` file then the typescript compiler will enable all strict type checking options.
 
@@ -756,18 +754,16 @@ if we set `"sourceMap": true,` in the `tsconfig.json` file then we can debug our
         // "allowUnreachableCode": true,                     /* Disable error reporting for unreachable code. */
 ```
 
-
 noImplicitAny is the most important strict option. It forces us to explicitly declare the type of any variables that are not initialized when they are declared.
 
 for example:
 
 ```ts
-
-function sendAnalytics (data){
-    console.log(data);
+function sendAnalytics(data) {
+  console.log(data);
 }
 
-sendAnalytics('The data');
+sendAnalytics("The data");
 ```
 
 - generates the following error:
@@ -794,12 +790,11 @@ Found 1 error in src/analytics/analytics.ts:2
 > 1.) Using the `!` operator
 
 ```ts
-
 const button = document.querySelector("button")!;
 // the ! operator tells typescript that we are sure that the element will not be null
 ```
 
-> 2.) Using an if check.            
+> 2.) Using an if check.
 
 ```ts
 if (button) {
@@ -809,7 +804,7 @@ if (button) {
 }
 ```
 
-######  "strictBindCallApply": true,   
+###### "strictBindCallApply": true,
 
 - This option forces us to explicitly declare the type of the `this` keyword when we use the `bind`, `call` or `apply` methods.
 
@@ -817,17 +812,13 @@ if (button) {
 const button = document.querySelector("button")!;
 
 function clickHandler(message: string) {
-    console.log("Clicked!" + message);
+  console.log("Clicked!" + message);
 }
-
 
 if (button) {
   button.addEventListener("click", clickHandler.bind(null));
 }
-
 ```
-
-
 
 #### Useful Links
 
@@ -840,12 +831,12 @@ Compiler Config Docs: https://www.typescriptlang.org/docs/handbook/compiler-opti
 VS Code TS Debugging: https://code.visualstudio.com/docs/typescript/typescript-debugging
 
 ---
+
 ---
 
 ## Next Generation JavaScript and TypeScript
 
 - [JS Features and Browser Compatibility](https://kangax.github.io/compat-table/es6/)
-
 
 -Let and Const are block scoped variables. They are not hoisted to the top of the function scope like var is. They are also not accessible before they are declared.
 
@@ -860,7 +851,6 @@ function doSomething() {
 ```
 
 ```ts
-
 function doSomething() {
   console.log(flag); // ReferenceError: flag is not defined
   if (true) {
@@ -869,5 +859,3 @@ function doSomething() {
   console.log(flag); // ReferenceError: flag is not defined
 }
 ```
-
-
