@@ -789,4 +789,42 @@ Found 1 error in src/analytics/analytics.ts:2
   "noImplicitAny": false, /* Enable error reporting for expressions and declarations with an implied 'any' type. */
 ```
 
-- **NoImplicitAny** 
+**Alternative ways to check for non null html elements**
+
+> 1.) Using the `!` operator
+
+```ts
+
+const button = document.querySelector("button")!;
+// the ! operator tells typescript that we are sure that the element will not be null
+```
+
+> 2.) Using an if check.            
+
+```ts
+if (button) {
+  button.addEventListener("click", () => {
+    console.log("Clicked!");
+  });
+}
+```
+
+######  "strictBindCallApply": true,   
+
+- This option forces us to explicitly declare the type of the `this` keyword when we use the `bind`, `call` or `apply` methods.
+
+```ts
+const button = document.querySelector("button")!;
+
+function clickHandler(message: string) {
+    console.log("Clicked!" + message);
+}
+
+
+if (button) {
+  button.addEventListener("click", clickHandler.bind(null));
+}
+
+```
+
+
