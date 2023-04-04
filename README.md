@@ -859,3 +859,16 @@ function doSomething() {
   console.log(flag); // ReferenceError: flag is not defined
 }
 ```
+
+
+**Default Parameters**  
+- Default parameters allow us to set a default value for a parameter if no value is passed in when the function is called.
+
+```ts
+const add = (a: number, b: number = 5) => {
+  return a + b;
+};
+```
+
+- The parameter that has a default value has to come last in the parameter list.
+

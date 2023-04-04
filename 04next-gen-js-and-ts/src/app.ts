@@ -14,7 +14,7 @@
   };
 })();
 //-----------------------------------------------------------------
-const add = (a: number, b: number) => {
+const add = (a: number, b: number = 5) => {
   return a + b;
 };
 
@@ -28,4 +28,4 @@ if (button) {
     button.addEventListener('click', event => console.log(event));
 }
 
-printOutput(add(5, 2));
+printOutput(add(5));
