@@ -14,18 +14,47 @@
   };
 })();
 //-----------------------------------------------------------------
-const add = (a: number, b: number = 5) => {
-  return a + b;
+// const add = (a: number, b: number = 5) => {
+//   return a + b;
+// };
+// 
+// const printOutput = (output: string | number) => {
+//     console.log(output);
+// }
+// 
+// const button = document.querySelector('button');
+// 
+// if (button) {
+//     button.addEventListener('click', event => console.log(event));
+// }
+// 
+// printOutput(add(5));
+// 
+// 
+// const hobbies = ['guitar', 'coding', 'reading', 'cooking', 'hockey'];
+// console.log(hobbies.map(hobby => 'Hobby: ' + hobby));
+// 
+// const activeHobbies = ["hiking"];
+// activeHobbies.push (...hobbies);
+// 
+// console.log(...activeHobbies);
+
+const person = {
+    firstName: 'Bryan',
+    age: 27
 };
 
-const printOutput = (output: string | number) => {
-    console.log(output);
+const pointerToPersonObj = person;
+
+const copiedPerson = {...person};
+
+
+const add = (...numbers:number[]) =>{
+  
+    const result =numbers.reduce((curResult, curValue) => {
+        return curResult + curValue;
+        }, 0);
+    return result;
 }
-
-const button = document.querySelector('button');
-
-if (button) {
-    button.addEventListener('click', event => console.log(event));
-}
-
-printOutput(add(5));
+const addedNumbers = add(5, 10, 2, 3.7);
+console.log(addedNumbers);

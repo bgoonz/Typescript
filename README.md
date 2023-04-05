@@ -872,3 +872,64 @@ const add = (a: number, b: number = 5) => {
 
 - The parameter that has a default value has to come last in the parameter list.
 
+---
+
+###### Spread Operator
+
+- The spread operator allows us to spread out an array into its elements.
+
+```ts
+const hobbies = ['guitar', 'coding', 'reading', 'cooking', 'hockey'];
+console.log(hobbies.map(hobby => 'Hobby: ' + hobby));
+
+const activeHobbies = ["hiking"];
+activeHobbies.push (...hobbies);
+
+console.log(...activeHobbies);
+```
+> Output
+```bash
+[
+  "Hobby: guitar",
+  "Hobby: coding",
+  "Hobby: reading",
+  "Hobby: cooking",
+  "Hobby: hockey"
+]
+hiking
+guitar
+coding
+reading
+cooking
+hockey
+```
+
+
+**Copying object with spread operator**
+
+```ts
+const person = {
+    firstName: 'Bryan',
+    age: 27
+};
+
+const pointerToPersonObj = person;
+
+const copiedPerson = {...person};
+```
+
+
+**Rest Parameters**
+- Rest parameters allow us to pass in an arbitrary number of arguments to a function.
+
+```ts
+
+const add = (...numbers: number[]) => {
+    return numbers.reduce((curResult, curValue) => {
+        return curResult + curValue;
+    }, 0);
+};
+```
+> In the code above, the `...numbers` is a rest parameter. It allows us to pass in an arbitrary number of arguments to the function. The `numbers` parameter is an array of numbers.
+
+
